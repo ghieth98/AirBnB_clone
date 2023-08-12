@@ -1,84 +1,83 @@
 #!/usr/bin/python3
 """
-Base classes for the entire AIRBNB Consol project
+It defines the Base classes for the entire AIRBNB Consol project
+A module for all classes, it is a parent class.
 """
-
-
-from uuid import uuid4
 from datetime import datetime
+from uuid import uuid4
 import models
 
 
-class BaseModel:
-    """Base for all the classes in the entire project
+class BaseModel():
+    """
+    Base for all the classes in the entire project
 
-    
     Arttributes:
-        id(str): Which handles unique user identity
-        created_at: Which assigns current datetime
-        updated_at: Which updates current datetime
+        id(str): handles unique user identity
+        created_at: assigns current datetime
+        updated_at: updates current datetime
 
-        
     Methods:
-        __str__: Which prints the class id, name and it creates dictionary
+        __str__(self): prints the class name, id, and creates dictionary
         representations of the input values
-        save(self): Which updates instance arttributes with current datetime
-        to_dict(self): Which returns the dictionary values of the instance obj
-
+        __save(self): updates instance arttributes with current datetime
+        to_dict(self): returns the dictionary values of the instance obj
+        __init__(self, *args, **kwargs)
+        __repr__(self)
     """
 
-
     def __init__(self, *args, **kwargs):
-        """The public instance artributes initialization
-        after creation
-
-        Args:
-            *args(args): An arguments
-            **kwargs(dict): An attrubute of values
-
         """
-        DT_FORMAT = '%Y-%m-%dT%H:%M:%S.%f'
-        if not kwargs:
-            self.id = str(uuid4())
-            self.created_at = datetime.utcnow()
-            self.updated_at = datetime.utcnow()
-            models.storage.new(self)
-        else:
+        Initialize attributes: uuid4, dates when class was created/updated
+        """
+        date_format = '%Y-%m-%dT%H:%M:%S.%f'
+        if kwargs:
             for key, value in kwargs.items():
-                if key in ("updated_at", "created_at"):
-                    self.__dict__[key] = datetime.strptime(
-                        value, DT_FORMAT)
-                elif key[0] == "id":
-                    self.__dict__[key] = str(value)
+                if "created_at" == key:
+                    self.created_at = datetime.strptime(kwargs["created_at"],
+                                                        date_format)
+                elif "updated_at" == key:
+                    self.updated_at = datetime.strptime(kwargs["updated_at"],
+                                                        date_format)
+                elif "__class__" == key:
+                    pass
                 else:
-                    self.__dict__[key] = value
+                    setattr(self, key, value)
+        else:
+            self.id = str(uuid4())
+            self.created_at = datetime.now()
+            self.updated_at = datetime.now()
+            models.storage.new(self)
 
     def __str__(self):
         """
-        It returns a string representation of the class
+        Return class name, id, and the dictionary
         """
-        return "[{}] ({}) {}".format(self.__class__.__name__,
-                                     self.id, self.__dict__)
+        return ('[{}] ({}) {}'.
+                format(self.__class__.__name__, self.id, self.__dict__))
+
+    def __repr__(self):
+        """
+        returns string repr
+        """
+        return (self.__str__())
 
     def save(self):
         """
-        It updates the public instance attribute:
-        'updated_at' - with the current datetime
+        Instance method to:
+        - update current datetime
+        - invoke save() function &
+        - save to serialized file
         """
-        self.updated_at = datetime.utcnow()
+        self.updated_at = datetime.now()
         models.storage.save()
 
     def to_dict(self):
         """
-        A method returns a dictionary containing all 
-        keys/values of __dict__ instance
+        Return dictionary of BaseModel with string formats of times
         """
-        map_obj = {}
-        for key, value in self.__dict__.items():
-            if key == "created_at" or key == "updated_at":
-                map_obj[key] = value.isoformat()
-            else:
-                map_obj[key] = value
-        map_obj["__class__"] = self.__class__.__name__
-        return map_obj
-
+        dic = self.__dict__.copy()
+        dic["created_at"] = self.created_at.isoformat()
+        dic["updated_at"] = self.updated_at.isoformat()
+        dic["__class__"] = self.__class__.__name__
+        return dic
