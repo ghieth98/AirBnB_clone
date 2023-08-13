@@ -1,15 +1,16 @@
 # AirBnB Clone ― The ALX-Holberton BnB
 
 # Description of the project
-This ALX AIRBNB project focused on the overall implementation of my five months of studies at
-the ALX-Holberton School - full-stack software engineering program.
+This ALX AIRBNB project focused on the overall implementation
+of my five months of studies at the ALX-Holberton School - full-stack
+software engineering program.
 The aim of this project is to deploy a clone of
-the[Airbnb Website](https://www.airbnb.com/) by using my own server.
-At the end of the implementaton of this project, it will have:
-- A command interpreter to manipulate data without a visual interface, like a shell (for development and debugging)
-- A website (front-end) with static and dynamic functionalities
-- A comprehensive database to manage the backend functionalities
-- An API that provides a communication interface between the front and backend of the system.
+the[Airbnb Website] (https://www.airbnb.com/) by using my own server.
+At the end of the implementation of this project, it will have:
+    - A command interpreter to manipulate data without a visual interface, like a shell (for development and debugging)
+    - A website (front-end) with static and dynamic functionalities
+    - A comprehensive database to manage the backend functionalities
+    - An API that provides a communication interface between the front and back end of the system.
 
 # General concepts
 The concept of this project includes:
@@ -19,19 +20,19 @@ The concept of this project includes:
 - How to serialize and deserialize a Class
 - How to write and read a JSON file
 - How to manage datetime
-- What is an UUID
+- What is a UUID
 - What is *args and how to use it
 - What is **kwargs and how to use it
 - How to handle named arguments in a function
 
 # Files and Directories
-- ```models``` directory will contain all classes used for the entire project.
+- ```models`` directory will contain all classes used for the entire project.
 - ```tests``` directory will contain all unit tests.
 - ```console.py``` file is the entry point of our command interpreter.
 - ```models/base_model.py``` file is the base class of all our models. It contains common elements:
     - attributes: ```id```, ```created_at``` and ```updated_at```
     - methods: ```save()``` and ```to_json()```
-- ```models/engine``` directory will contain all storage classes. For now I will have only one: ```file_storage.py```.
+- ```models/engine``` directory will contain all storage classes. For now, I will have only one: ```file_storage.py```.
 
 Below are the project implementation phases:
 # Phase One
@@ -51,7 +52,7 @@ The first phase is to manipulate a powerful storage system to give an abstractio
 | ```quit```  | Quits the console  |
 | ```Ctrl+D```  | Quits the console  |
 | ```help``` or ```help <command>```  | Displays all commands or Displays instructions for a specific command
-| ```create <class>```  | Creates an object of type , saves it to a JSON file, and prints the objects ID
+| ```create <class>```  | Creates an object of type, saves it to a JSON file, and prints the objects ID
 | ```show <class> <ID>```  | Shows string representation of an object
 | ```destroy <class> <ID>```  | Deletes an objects
 | ```all or all <class>```  | Prints all string representations of all objects or Prints all string representations of all objects of a specific class
@@ -64,7 +65,7 @@ The first phase is to manipulate a powerful storage system to give an abstractio
 | ```<class>.update(<ID>, <dictionary representation>)```  | Updates an objects based on a dictionary representation of attribute names and values
 
 # General Execution
-Your shell should work like this in interactive mode:
+Your shell should work like this in an interactive mode:
 ```
 $ ./console.py
 (hbnb) help
