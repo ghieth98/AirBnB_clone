@@ -1,15 +1,17 @@
 # AirBnB Clone ― The ALX-Holberton BnB
 
-## Description of the project
-This ALX AIRBNB project focused on the over all implementation of my five months of studies at the ALX-Holberton School - fullstack software engineering program.
-The aim of this project is to deploy a clone of the [Airbnb Website](https://www.airbnb.com/) by using my own server.
+# Description of the project
+This ALX AIRBNB project focused on the overall implementation of my five months of studies at
+the ALX-Holberton School - full-stack software engineering program.
+The aim of this project is to deploy a clone of
+the[Airbnb Website](https://www.airbnb.com/) by using my own server.
 At the end of the implementaton of this project, it will have:
 - A command interpreter to manipulate data without a visual interface, like a shell (for development and debugging)
 - A website (front-end) with static and dynamic functionalities
 - A comprehensive database to manage the backend functionalities
 - An API that provides a communication interface between the front and backend of the system.
 
-### General concepts
+# General concepts
 The concept of this project includes:
 - How to create a Python package
 - How to create a command interpreter in Python using the cmd module
@@ -22,7 +24,7 @@ The concept of this project includes:
 - What is **kwargs and how to use it
 - How to handle named arguments in a function
 
-## Files and Directories
+# Files and Directories
 - ```models``` directory will contain all classes used for the entire project.
 - ```tests``` directory will contain all unit tests.
 - ```console.py``` file is the entry point of our command interpreter.
@@ -32,7 +34,7 @@ The concept of this project includes:
 - ```models/engine``` directory will contain all storage classes. For now I will have only one: ```file_storage.py```.
 
 Below are the project implementation phases:
-## Phase One
+# Phase One
 The first phase is to manipulate a powerful storage system to give an abstraction between objects and how they are stored and persisted. To achieve this, I will:
 - put in place a parent class (called ```BaseModel```) to take care of the initialization, serialization and deserialization of my future instances
 - create a simple flow of serialization/deserialization: Instance <-> Dictionary <-> JSON string <-> file
@@ -43,7 +45,7 @@ The first phase is to manipulate a powerful storage system to give an abstractio
 - Manage (create, update, destroy, etc) objects via a console/command interpreter
 - Store and persist objects to files (JSON files)
 
-## Description of the command interpreter
+# Description of the command interpreter
 | Commands  | Description |
 | ------------- | ------------- |
 | ```quit```  | Quits the console  |
@@ -61,7 +63,7 @@ The first phase is to manipulate a powerful storage system to give an abstractio
 | ```<class>.update(<ID>, <attribute name>, <attribute value>```  | Same as update ```<class> <ID> <attribute name> <attribute value>```
 | ```<class>.update(<ID>, <dictionary representation>)```  | Updates an objects based on a dictionary representation of attribute names and values
 
-## General Execution
+# General Execution
 Your shell should work like this in interactive mode:
 ```
 $ ./console.py
