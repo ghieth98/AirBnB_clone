@@ -2,14 +2,14 @@
 
 ## Description of the project
 This ALX AIRBNB project focused on the over all implementation of my five months of studies at the ALX-Holberton School - fullstack software engineering program.
-The aim of this project is to deploy a clone of the [Airbnb Website](https://www.airbnb.com/) by using my own server. 
+The aim of this project is to deploy a clone of the [Airbnb Website](https://www.airbnb.com/) by using my own server.
 At the end of the implementaton of this project, it will have:
 - A command interpreter to manipulate data without a visual interface, like a shell (for development and debugging)
 - A website (front-end) with static and dynamic functionalities
 - A comprehensive database to manage the backend functionalities
 - An API that provides a communication interface between the front and backend of the system.
 
-### General concepts 
+### General concepts
 The concept of this project includes:
 - How to create a Python package
 - How to create a command interpreter in Python using the cmd module
@@ -23,7 +23,7 @@ The concept of this project includes:
 - How to handle named arguments in a function
 
 ## Files and Directories
-- ```models``` directory will contain all classes used for the entire project. 
+- ```models``` directory will contain all classes used for the entire project.
 - ```tests``` directory will contain all unit tests.
 - ```console.py``` file is the entry point of our command interpreter.
 - ```models/base_model.py``` file is the base class of all our models. It contains common elements:
@@ -70,8 +70,8 @@ $ ./console.py
 Documented commands (type help <topic>):
 ========================================
 EOF  help  quit
-(hbnb) 
-(hbnb) 
+(hbnb)
+(hbnb)
 (hbnb) quit
 $
 But also in non-interactive mode: (like the Shell project in C)
@@ -82,7 +82,7 @@ $ echo "help" | ./console.py
 Documented commands (type help <topic>):
 ========================================
 EOF  help  quit
-(hbnb) 
+(hbnb)
 $
 $ cat test_help
 help
